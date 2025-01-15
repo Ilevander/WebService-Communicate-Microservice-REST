@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des employées : Modèle MVC avec le Template Spring: Thymeleaf</title>
+</head>
+<body>
+<h2 class="h2">Liste des employées</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${employees.empty}">
+        <td colspan="2">Aucun employé en base de données</td>
+    </tr>
+    <!-- Iterate over the employees list -->
+    <tr th:each="employee : ${employees}">
+        <td><span th:text="${employee.firstName}">Prénom</span></td>
+        <td><span th:text="${employee.lastName}">Nom</span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
